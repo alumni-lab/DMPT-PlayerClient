@@ -3,7 +3,7 @@
 ## Overview
 
 The idea is to create a client for Players in games where the DM uses the DMPT to have access to their player sheet rather than having their character sheet on paper.
-DMPT link: (https://draconianlore.github.io/dmPlayerTracker](DMPT)]
+DMPT link: (https://draconianlore.github.io/dmPlayerTracker)[DMPT]
 
 Players will be able to:
 
