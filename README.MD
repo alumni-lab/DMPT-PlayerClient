@@ -27,3 +27,38 @@ The client will talk to the backend using websockets so both the player and DM a
 
 * Setup react app and connect to the backend
 * Setup websockets 
+* Setup React Router
+* Create global player state context
+
+### User Login/Signup
+
+* Setup for existing users to log in, and new users to sign up (with player code from DM)
+
+### GUI setup
+
+* Create GUI for both mobile to show one section at a time(using react router?) and desktop to show all(or as many as fit on a screen)
+* Setup Menu/Navigation including logout, profile etc.
+
+### Connect to API and pull and display data for each section
+
+All data can be pulled on initial connect, then when websockets alert to new data, new data will be pulled from that endpoint
+
+
+### Components to be created
+
+Some stats affect other stats(for example Passive Perception), so all changes to stats must change the global state
+
+* Base Stats
+* Player Info
+* Abilities
+* Spells
+* Notes
+* Items
+* Frequently changing stats
+  * Hit Points
+  * Spell Slots
+  * Custom Fields(DM Created such as Inspiration Dice)
+* Possibly look into
+  * Equipment?
+  * Prepared Spells
+
