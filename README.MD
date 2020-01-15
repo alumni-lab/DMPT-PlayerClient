@@ -21,8 +21,8 @@ The client will talk to the backend using websockets so both the player and DM a
 
 ## Coding style guide
 
-Using functional components with hooks only (no class components if possible)
-Fonts and colours will be set up in stylesheets for global colours and styles
+* Using functional components with hooks only (no class components if possible)
+* Fonts and colours will be set up in stylesheets for global colours and styles
 
 
 ## Breakdown
