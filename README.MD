@@ -16,13 +16,18 @@ The client will talk to the backend using websockets so both the player and DM a
 
 ### To look at:
 
-* use trello API to show/sort items for player ionventory?
 * some flashy graphics effects for when player takes damage, heals, levels up
+* drag/drop sorting - viability for mobile?
+* decide on CSS style
+  * sass/scss
+  * styled components
+  * standard css
 
 ## Coding style guide
 
 * Using functional components with hooks only (no class components if possible)
-* Fonts and colours will be set up in stylesheets for global colours and styles
+* Fonts and colours to be set up in stylesheets for global colours and styles
+* Folder structure: each component in its own folder with subcomponent folders inside(see exampleComponent) or common components used from a common folder
 
 
 ## Breakdown
@@ -34,13 +39,19 @@ The client will talk to the backend using websockets so both the player and DM a
 * Setup React Router
 * Create global player state and structure for mobile or desktop view components
 
+### Storybook setup
+
+* set up storybook for components
+
 ### User Login/Signup
 
 * Setup for existing users to log in, and new users to sign up (with player code from DM)
 
 ### GUI setup
 
-* Create GUI for both mobile to show one section at a time(using react router?) and desktop to show all(or as many as fit on a screen)
+* Create GUI for both: 
+  * mobile to show one section at a time(using react router?)
+  * desktop to show all(or as many as fit on a screen)
 * Setup Menu/Navigation including logout, profile etc.
 * Setup css or sass for stylesheets and create global styles, fonts and colours
 
