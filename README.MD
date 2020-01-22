@@ -22,6 +22,7 @@ The client will talk to the backend using websockets so both the player and DM a
   * sass/scss
   * styled components
   * standard css
+  * something else?
 
 ## Coding style guide
 
@@ -36,7 +37,7 @@ The client will talk to the backend using websockets so both the player and DM a
 
 * Setup react app and connect to the backend
 * Setup websockets 
-* Setup React Router
+* Setup React Router(for mobile view)
 * Create global player state and structure for mobile or desktop view components
 
 ### Storybook setup
