@@ -35,10 +35,9 @@ The client will talk to the backend using websockets so both the player and DM a
 
 ### React app setup
 
-* Setup react app and connect to the backend
+* Setup react app
 * Setup websockets 
 * Setup React Router(for mobile view)
-* Create global player state and structure for mobile or desktop view components
 
 ### Storybook setup
 
