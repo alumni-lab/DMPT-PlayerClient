@@ -1,13 +1,13 @@
-import React from 'react';
-import Section from './section'
+import React from 'react'
+import Login from './Login'
 
 const ExampleComponent = () => {
   // component code here
   return (
     <>
-      <Section />
+      <Login />
     </>
   )
 }
 
-export default ExampleComponent;
+export default ExampleComponent
