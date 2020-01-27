@@ -1,13 +1,22 @@
-import React from 'react';
-import Section from './section'
+import React, { useState } from 'react'
+import Login from '../Login'
+import Register from '../Register'
 
 const ExampleComponent = () => {
-  // component code here
+  const [state, setState] = useState(true)
+  const login = () => {
+    setState(true)
+  }
+  const register = () => {
+    setState(false)
+  }
   return (
     <>
-      <Section />
+      <button onClick={login}>Login</button>
+      <button onClick={register}>Register</button>
+      {state ? <Login /> : <Register />}
     </>
   )
 }
 
-export default ExampleComponent;
+export default ExampleComponent
