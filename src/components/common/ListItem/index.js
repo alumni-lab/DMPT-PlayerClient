@@ -1,16 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import {fonts} from '../styles/index.js';
-// const fonts = {
-//   main: {
-//       family: `'Arial Narrow', Arial, sans-serif`,
-//       size: {
-//         small: '14px',
-//         medium: '19px'
-//       }
-//   },
- 
-// }
+
+
 const Item = styled.div`
   display: flex;
   flex-direction: column;
