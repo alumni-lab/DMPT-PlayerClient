@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-
+import {fonts} from '../styles/index.js';
+// const fonts = {
+//   main: {
+//       family: `'Arial Narrow', Arial, sans-serif`,
+//       size: {
+//         small: '14px',
+//         medium: '19px'
+//       }
+//   },
+ 
+// }
 const Item = styled.div`
   display: flex;
   flex-direction: column;
@@ -9,6 +19,7 @@ const Item = styled.div`
   max-width: 20vw;
   box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3);
   margin: 0;
+  font-family: ${fonts.main.family};
   transition: all 2s ease;
   `
 const Title = styled.p`
@@ -19,10 +30,9 @@ const Title = styled.p`
   cursor: pointer;
   // ${({ expanded }) => expanded && 'border-bottom: 1px solid black;'}
   color: #777;
-  font-family: 'Arial Narrow', Arial, sans-serif;
   text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
   line-height: 33px;
-  font-size: 19px;
+  font-size: ${fonts.main.size.medium};
   background: #ffffff;
   background: -moz-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#ffffff), color-stop(100%,#eaeaea));
@@ -48,7 +58,7 @@ const Description = styled.p`
   font-style: italic;
   color: #777;
   line-height: 23px;
-  font-size: 14px;
+  font-size: ${fonts.main.size.small};
   text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
   background: rgba(255, 255, 255, 0.5);
   transition: all 0.5s;
@@ -56,7 +66,6 @@ const Description = styled.p`
 
 const ListItem = ({ title, description, itemID }) => {
   const [expanded, setExpanded] = useState(false)
-
   const expand = () => {
     setExpanded(!expanded)
   }
