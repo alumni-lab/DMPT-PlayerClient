@@ -2,6 +2,8 @@
 
 ## Overview
 
+SEE ALSO: [Project Board](https://github.com/alumni-lab/DMPT-PlayerClient/projects/1)
+
 The idea is to create a client for Players in games where the DM uses the DMPT to have access to their player sheet rather than having their character sheet on paper.
 DMPT link: [DMPT](https://draconianlore.github.io/dmPlayerTracker)
 
