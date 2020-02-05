@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import {fonts} from '../styles/index.js';
+import {fonts, colours} from '../styles/index.js';
 
 
 const Item = styled.div`
@@ -9,10 +9,12 @@ const Item = styled.div`
   width: 100%;
   min-width: 220px;
   max-width: 20vw;
-  box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3);
+  box-shadow: 0px 0px 0px 1px ${colours.backgroundDark};
   margin: 0;
   font-family: ${fonts.main.family};
   transition: all 2s ease;
+  user-select: none; 
+  background-color: ${colours.background}
   `
 const Title = styled.p`
   text-align: center;
@@ -21,21 +23,21 @@ const Title = styled.p`
   width: 100%;
   cursor: pointer;
   // ${({ expanded }) => expanded && 'border-bottom: 1px solid black;'}
-  color: #777;
-  text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
+  color: ${colours.primary};
+  text-shadow: 1px 1px 1px ${colours.primaryShadow};
   line-height: 33px;
   font-size: ${fonts.main.size.medium};
-  background: #ffffff;
-  background: -moz-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#ffffff), color-stop(100%,#eaeaea));
-  background: -webkit-linear-gradient(top, #ffffff 1%,#eaeaea 100%);
-  background: -o-linear-gradient(top, #ffffff 1%,#eaeaea 100%);
-  background: -ms-linear-gradient(top, #ffffff 1%,#eaeaea 100%);
-  background: linear-gradient(top, #ffffff 1%,#eaeaea 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 );
+  background: ${colours.backgroundDark};
+  background: -moz-linear-gradient(top, ${colours.backgroundDark} 1%, ${colours.background} 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,${colours.backgroundDark}), color-stop(100%,${colours.background}));
+  background: -webkit-linear-gradient(top, ${colours.backgroundDark} 1%,${colours.background} 100%);
+  background: -o-linear-gradient(top, ${colours.backgroundDark} 1%,${colours.background} 100%);
+  background: -ms-linear-gradient(top, ${colours.backgroundDark} 1%,${colours.background} 100%);
+  background: linear-gradient(top, ${colours.backgroundDark} 1%,${colours.background} 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='${colours.backgroundDark}', endColorstr='${colours.background}',GradientType=0 );
   box-shadow: 
-      0px 0px 0px 1px rgba(155,155,155,0.3), 
-      1px 0px 0px 0px rgba(255,255,255,0.9) inset, 
+      0px 0px 0px 1px ${colours.background}, 
+      1px 0px 0px 0px ${colours.backgroundDark} inset, 
       0px 2px 2px rgba(0,0,0,0.1);
   `
 const Description = styled.p`
@@ -48,13 +50,12 @@ const Description = styled.p`
   -webkit-box-orient: vertical;
   cursor: pointer;
   font-style: italic;
-  color: #777;
+  color: ${colours.primary};
   line-height: 23px;
   font-size: ${fonts.main.size.small};
-  text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
-  background: rgba(255, 255, 255, 0.5);
   transition: all 0.5s;
 `
+
 
 const ListItem = ({ title, description, itemID }) => {
   const [expanded, setExpanded] = useState(false)
