@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import ListItem from '../components/common/ListItem';
+import ListItem from './index';
 
 const shortItem = {
   id: 1,
@@ -21,4 +21,4 @@ storiesOf('Common/ListItem', module)
     <ListItem itemID={shortItem.id} title={shortItem.title} description={shortItem.description} />
     <ListItem itemID={longItem.id} title={longItem.title} description={longItem.description} />
     </>
-  )
+  ) 

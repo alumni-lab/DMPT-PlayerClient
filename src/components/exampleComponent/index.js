@@ -1,20 +1,12 @@
-import React, { useState } from 'react'
-import Login from '../Login'
-import Register from '../Register'
+import React from 'react'
+import Section from './section';
+
 
 const ExampleComponent = () => {
-  const [state, setState] = useState(true)
-  const login = () => {
-    setState(true)
-  }
-  const register = () => {
-    setState(false)
-  }
   return (
     <>
-      <button onClick={login}>Login</button>
-      <button onClick={register}>Register</button>
-      {state ? <Login /> : <Register />}
+    <Section content={'Section One'} />
+    <Section content={'Section Two'} />
     </>
   )
 }
