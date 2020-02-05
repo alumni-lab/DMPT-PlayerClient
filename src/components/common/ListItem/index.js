@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import {fonts, colours} from '../styles/index.js';
 
-const colour = colours.base; // set theme
+const colour = colours.ocean; // set theme
 
 const Item = styled.div`
   display: flex;
