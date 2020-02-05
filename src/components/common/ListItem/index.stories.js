@@ -21,4 +21,4 @@ storiesOf('Common/ListItem', module)
     <ListItem itemID={shortItem.id} title={shortItem.title} description={shortItem.description} />
     <ListItem itemID={longItem.id} title={longItem.title} description={longItem.description} />
     </>
-  )
+  ) 
