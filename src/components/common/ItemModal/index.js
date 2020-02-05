@@ -31,6 +31,7 @@ const Title = styled.div`
 const Desctiprion = styled.div`
 padding: 3%;
 margin: 0;
+
 `
 const DescriptionText = styled.p`
 color: ${colour.secondary};
@@ -45,6 +46,8 @@ const ModalButtons = styled.div`
   justify-content: space-around;
   border-top:  2px solid ${colour.primaryShadow};
   padding: 10px 0;  
+  background-color: ${colour.quaternary};
+
 `
 
 // TODO import common button component when created
