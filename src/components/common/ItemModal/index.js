@@ -26,6 +26,7 @@ const Title = styled.div`
   padding: 10px 0;
   border-bottom: 2px solid ${colour.primaryShadow};
   background-color: ${colour.quaternary};
+  z-index: 5;
 
 `
 const Desctiprion = styled.div`
