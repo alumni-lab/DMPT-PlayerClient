@@ -47,7 +47,7 @@ const Description = styled.p`
   margin: ${({ show }) => show ? '10px 10px' : '0px 10px'};
   overflow: hidden;
   text-overflow: ellipsis;
-  -webkit-line-clamp: 4; /* number of lines to show */
+  -webkit-line-clamp: 4; // number of lines to show
   -webkit-box-orient: vertical;
   cursor: pointer;
   font-style: italic;
@@ -58,7 +58,7 @@ const Description = styled.p`
 `
 
 
-const ListItem = ({ item, modal, mobile }) => {
+const ListItem = ({ item, modal }) => {
   const [expanded, setExpanded] = useState(false)
   const expand = () => {
     setExpanded(!expanded)
@@ -69,7 +69,7 @@ const ListItem = ({ item, modal, mobile }) => {
       edit: true
     }
     // TODO add logic for changing options based on item.itemType
-    modal(item, mobile, options)
+    modal(item, options)
   }
   return (
     <Item key={item.itemID} >
