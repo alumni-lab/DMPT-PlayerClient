@@ -58,22 +58,26 @@ const Description = styled.p`
 `
 
 
-const ListItem = ({ title, description, itemID }) => {
+const ListItem = ({ item, modal, mobile }) => {
   const [expanded, setExpanded] = useState(false)
   const expand = () => {
     setExpanded(!expanded)
   }
   const showDetails = () => {
-    // TODO push to modal common component when created
-    console.log('Push to modal component here - Not implemented yet')
+    let options = {
+      delete: true,
+      edit: true
+    }
+    // TODO add logic for changing options based on item.itemType
+    modal(item, mobile, options)
   }
   return (
-    <Item key={itemID} >
+    <Item key={item.itemID} >
       <Title onClick={expand} expanded={expanded} >
-        {title}
+        {item.title}
       </Title>
       <Description show={expanded} onClick={showDetails}>
-        {description}
+        {item.description}
       </Description>
     </Item>
   )
