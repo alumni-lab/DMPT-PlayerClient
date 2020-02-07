@@ -48,12 +48,19 @@ const ModalButtons = styled.div`
   border-top:  2px solid ${colour.primaryShadow};
   padding: 10px 0;  
   background-color: ${colour.quaternary};
-
 `
 
 // TODO import common button component when created
 const Button = styled.button`
   width: 33%;
+  line-height: 1.5;
+`
+const CloseButton = styled.button`
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  z-index: 6;
+  padding: 1px;
 `
 
 /*
@@ -61,7 +68,7 @@ const Button = styled.button`
   item: item object
   options: edit, delete
 */
-const ItemModal = ({ item, mobile, options }) => {
+const ItemModal = ({ item, mobile, options, closeModal }) => {
   const deleteItem = () => {
     // TODO add functionality
     console.log('DELETE ITEM')
@@ -70,11 +77,16 @@ const ItemModal = ({ item, mobile, options }) => {
     // TODO add functionality
     console.log('EDIT ITEM')
   }
+
+
   return (
     <Modal mobile={mobile}>
       <Title>
         {item.title}
       </Title>
+      <CloseButton onClick={closeModal}>
+        X
+      </CloseButton>
       <Desctiprion>
         <DescriptionText>
           {item.description}

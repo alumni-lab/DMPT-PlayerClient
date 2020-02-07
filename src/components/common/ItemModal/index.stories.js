@@ -11,8 +11,11 @@ const options = {
   edit: true,
   delete: true
 }
+const closeModal = () => {
+  console.log('Close button pressed')
+}
 
 storiesOf('Common/Modal', module)
-  .add('Mobile', () => <Modal item={testItem} options={options} mobile={true} />)
-  .add('Desktop', () => <Modal item={testItem} options={options} />)
+  .add('Mobile', () => <Modal item={testItem} options={options} mobile={true} closeModal={closeModal} />)
+  .add('Desktop', () => <Modal item={testItem} options={options} closeModal={closeModal} />)
   
