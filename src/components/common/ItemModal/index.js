@@ -70,11 +70,11 @@ const CloseButton = styled.button`
 */
 const ItemModal = ({ item, mobile, options, closeModal }) => {
   const deleteItem = () => {
-    // TODO add functionality
+    // TODO add functionality when API hook is setup
     console.log('DELETE ITEM')
   }
   const editItem = () => {
-    // TODO add functionality
+    // TODO add functionality when API hook is setup
     console.log('EDIT ITEM')
   }
 
