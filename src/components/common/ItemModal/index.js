@@ -61,7 +61,7 @@ const Button = styled.button`
   item: item object
   options: edit, delete
 */
-const ItemModal = ({ mobile, item, options }) => {
+const ItemModal = ({ item, mobile, options }) => {
   const deleteItem = () => {
     // TODO add functionality
     console.log('DELETE ITEM')
