@@ -5,7 +5,13 @@ import MobileLayout from './Mobile';
 
 import '../../index.css' // load base css to show accurate views
 
+const player = {
+  name: 'Jane Doe',
+  HP: 15,
+  maxHP: 195,
+}
+
 storiesOf('Layouts', module)
-  .add('Desktop', () => <DesktopLayout /> )
-  .add('Mobile', () => <MobileLayout /> )
+  .add('Desktop', () => <DesktopLayout player={player} /> )
+  .add('Mobile', () => <MobileLayout player={player} /> )
    
