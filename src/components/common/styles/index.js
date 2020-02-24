@@ -6,7 +6,8 @@ const fonts = {
         family: `'Arial Narrow', Arial, sans-serif`,
         size: {
           small: '14px',
-          medium: '19px'
+          medium: '19px',
+          large: '26px'
         }
     },
 }
