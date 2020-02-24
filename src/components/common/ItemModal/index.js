@@ -24,6 +24,8 @@ const Title = styled.div`
   width: 100%;
   text-align: center;
   padding: 10px 0;
+  font-size: ${fonts.main.size.large};
+  font-weight: 700;
   border-bottom: 2px solid ${colour.primaryShadow};
   background-color: ${colour.quaternary};
   z-index: 5;
@@ -56,11 +58,10 @@ const Button = styled.button`
   line-height: 1.5;
 `
 const CloseButton = styled.button`
-  position: absolute;
-  top: 2%;
-  right: 2%;
+  float: right;
   z-index: 6;
   padding: 1px;
+  margin: 0 20px 0 0;
 `
 
 /*
@@ -83,10 +84,10 @@ const ItemModal = ({ item, mobile, options, closeModal }) => {
     <Modal mobile={mobile}>
       <Title>
         {item.title}
-      </Title>
       <CloseButton onClick={closeModal}>
         X
       </CloseButton>
+      </Title>
       <Desctiprion>
         <DescriptionText>
           {item.description}
