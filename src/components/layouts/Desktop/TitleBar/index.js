@@ -11,7 +11,7 @@ let colour = colours[Cookies.get('theme')] || colours.base;
 const TopBar = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: ${colour.secondary};
+  background-color: ${colour.quaternary};
   width: 100%;
   margin: 0;
   padding: 0;
