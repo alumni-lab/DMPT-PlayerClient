@@ -17,7 +17,7 @@ const colours = {
         secondary: '#9c9c9c',
         tertiary: '#eeeeee',
         quaternary: '#dddddd',
-        background: '#ffffff',
+        background: '#fcfcfc',
         backgroundDark: '#eaeaea',
         primaryShadow: 'rgba(90, 90, 90, 0.5)'
     },

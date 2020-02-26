@@ -7,7 +7,7 @@ import Cookies from 'js-cookie';
 import TitleBar from './TitleBar';
 let colour = colours[Cookies.get('theme')] || colours.base;
 const Desktop = styled.div`
-background-color: ${colour.backgroundDark};
+background-color: ${colour.background};
 `
 const Container = styled.div`
   display: flex;
@@ -41,7 +41,7 @@ const TopBar = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: ${colour.background};
+  background-color: ${colour.backgroundDark};
   color: ${colour.primary};
   margin: 0;
   border-radius: 0 0 2vh 2vh;
