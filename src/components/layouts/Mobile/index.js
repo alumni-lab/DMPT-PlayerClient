@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import {fonts, colours} from '../../common/styles';
 import TopBar from './TopBar';
 
-let colour = colours.ocean;
+import Cookies from 'js-cookie';
+
+let colour = colours[Cookies.get('theme')] || colours.base;
 
 const Container = styled.div`
   display: flex;

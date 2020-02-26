@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { fonts, colours } from '../../common/styles';
+import Cookies from 'js-cookie';
+
 // import moving from './hooks/moving';
 import TitleBar from './TitleBar';
-
-const colour = colours.base;
+let colour = colours[Cookies.get('theme')] || colours.base;
 const Desktop = styled.div`
 background-color: ${colour.backgroundDark};
 `

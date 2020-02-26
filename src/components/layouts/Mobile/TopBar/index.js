@@ -4,8 +4,9 @@ import { fonts, colours } from '../../../common/styles';
 
 // TODO change to svg so colour can change with themes
 import menuImg from '../../../../images/menuImg.png';
+import Cookies from 'js-cookie';
 
-const colour = colours.ocean; // set theme
+let colour = colours[Cookies.get('theme')] || colours.base;
 
 const Bar = styled.div`
   width: 100%;
