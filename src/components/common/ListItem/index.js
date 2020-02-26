@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import {fonts, colours} from '../styles/index.js';
+import Cookies from 'js-cookie';
 
-const colour = colours.base; // set theme
+let colour = colours[Cookies.get('theme')] || colours.base;
+
 
 const Item = styled.div`
   display: flex;

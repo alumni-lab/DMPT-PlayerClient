@@ -4,7 +4,9 @@ import { fonts, colours } from '../../../common/styles';
 import moveImage from '../../../../images/moveImage.png';
 import minimizeImage from '../../../../images/minimizeImage.png';
 
-const colour = colours.base;
+import Cookies from 'js-cookie';
+
+let colour = colours[Cookies.get('theme')] || colours.base;
 
 const TopBar = styled.div`
   display: flex;
