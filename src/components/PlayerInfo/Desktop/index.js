@@ -12,8 +12,6 @@ const Info = styled.div`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  width: 100vw;
-  height: 100vh;
   padding: 0.5rem;
   border: 2px solid ${colour.primaryShadow};
 
@@ -27,10 +25,11 @@ const Info = styled.div`
 const PortraitRow = styled.div`
   /* Display & Box Model */
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 
   /* Text */
-  font-size: ${fonts.main.size.large};
-  font-weight: 500;
+  font-size: calc(2vw + 1em);
 `;
 
 const PortraitColumn = styled.div`
@@ -62,7 +61,7 @@ const AgeRow = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-top: -2em;
-  margin-bottom: 1em;
+  margin-bottom: 3vw;
 `;
 
 const AgeColumn = styled.div`
@@ -72,7 +71,7 @@ const AgeColumn = styled.div`
   align-items: flex-end;
 
   /* Text */
-  font-size: ${fonts.main.size.large};
+  font-size: calc(2vw + 1em);
 `;
 
 const AgeValueColumn = styled.div`
@@ -82,7 +81,7 @@ const AgeValueColumn = styled.div`
   align-items: flex-start;
 
   /* Text */
-  font-size: ${fonts.main.size.large};
+  font-size: calc(2vw + 1em);
 `;
 
 const AbilityRow = styled.div`
@@ -97,7 +96,7 @@ const AbilityContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1 0 30%;
+
 `;
 
 const AbilityColumn = styled.div`
@@ -107,9 +106,9 @@ const AbilityColumn = styled.div`
   justify-content: center;
   align-items: center;
   width: 15vw;
-  min-width: 120px;
+  min-width: 90px;
   height: 15vw;
-  min-height: 120px;
+  min-height: 90px;
   border: 1px solid black;
   border-radius: 50%;
   margin-bottom: 1em;
@@ -117,17 +116,22 @@ const AbilityColumn = styled.div`
 
 const AbilityValue = styled.div`
   /* Text */
-  font-size: ${fonts.main.size.large};
+  font-size: calc(2vw + 1em);
+`;
+
+const SpecialValue = styled.div`
+  /* Text */
+  font-size: calc(1vw + 1em);
 `;
 
 const ResistanceRow = styled.div`
   /* Display & Box Model */
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 `;
 const ResistanceTitle = styled.div`
   /* Text */
-  font-size: ${fonts.main.size.large};
+  font-size: calc(2vw + 0.5em);
 `;
 
 const ResistanceColumn = styled.div`
@@ -135,7 +139,7 @@ const ResistanceColumn = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
+  margin-right: calc(3vw + 0.5em);
   /* Text */
   font-size: ${fonts.main.size.medium};
 `;
@@ -182,7 +186,7 @@ const DesktopPlayerInfo = ({ player }) => {
       <AbilityColumn>
         <div>Special</div>
         <AbilityValue>{specialField.name}</AbilityValue>
-        <AbilityValue>{specialField.value}</AbilityValue>
+        <SpecialValue>{specialField.value}</SpecialValue>
       </AbilityColumn>
     </AbilityContainer>
   ) : (
