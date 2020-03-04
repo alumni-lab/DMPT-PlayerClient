@@ -26,7 +26,8 @@ const BarButton = styled.img`
 `
 
 const Title = styled.span`
-  color: ${colour.primary}
+  color: ${colour.primary};
+  font-weight: 700;
 `
 
 const TitleBar = ({title, minimizeSection, position}) => {
