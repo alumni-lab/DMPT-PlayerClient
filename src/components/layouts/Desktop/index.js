@@ -82,6 +82,7 @@ const SectionContent = styled.div`
   padding: 5px 10px;
   transition: all 1s ease;
   max-height: ${({ minimized }) => minimized ? '0' : '2000px'};
+  color: ${colour.secondary};
 `
 
 
@@ -94,7 +95,7 @@ const DesktopLayout = ({ player }) => {
     { a: { content: true, min: false }, b: { content: true, min: false } },
     { a: { content: true, min: false }, b: { content: true, min: false } },
     { a: { content: true, min: false }, b: { content: true, min: false } },
-    { a: { content: true, min: false }, b: { content: true, min: false } }
+    { a: { content: true, min: false }, b: { content: false, min: false } }
   ]);
   const [columns, setColumns] = useState([]);
 
@@ -124,16 +125,16 @@ const DesktopLayout = ({ player }) => {
           </SectionContent>
         </Section>}
       </>)
-      temp[i].b.content = (
-        <>
-          {order[i].b.content && <Section >
+      if (order[i].b.content) {
+        temp[i].b.content = (
+          <Section >
             <TitleBar title={`Section ${i}B`}  position={`${i}b`} minimizeSection={minimize} />
             <SectionContent minimized={order[i].b.min}>
               {testdata}
             </SectionContent>
-          </Section>}
-        </>
-      )
+          </Section>
+        )
+      }
     }
     setOrder(temp)
   }
