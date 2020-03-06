@@ -1,4 +1,4 @@
-Issue # .
+Resolves # (issue number)
 
 
 Changes in this Pull Request:
