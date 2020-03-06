@@ -108,7 +108,6 @@ const DesktopLayout = ({ player }) => {
   const [desktopView, setDesktopView] = useState(false)
 
   const minimize = (section) => {
-    console.log('Minimize', section - 1)
     let changeSections = sections;
     changeSections[section - 1].min = !changeSections[section - 1].min;
     setSections(changeSections)
