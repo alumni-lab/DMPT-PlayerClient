@@ -74,9 +74,9 @@ const ListItem = ({ item, modal }) => {
     modal(item, options)
   }
   return (
-    <Item key={item.itemID} >
+    <Item key={item.id} >
       <Title onClick={expand} expanded={expanded} >
-        {item.title}
+        {item.name}
       </Title>
       <Description show={expanded} onClick={showDetails}>
         {item.description}
