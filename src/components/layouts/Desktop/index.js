@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { fonts, colours } from '../../common/styles';
 import Cookies from 'js-cookie';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+
 
 // import moving from './hooks/moving';
 import TitleBar from './TitleBar';
@@ -98,7 +100,6 @@ const DesktopLayout = ({ player }) => {
     { a: { content: true, min: false }, b: { content: false, min: false } }
   ]);
   const [columns, setColumns] = useState([]);
-
   const moveItem = (target) => {
     // TODO make sections draggable
     console.log(target)
@@ -128,7 +129,7 @@ const DesktopLayout = ({ player }) => {
       if (order[i].b.content) {
         temp[i].b.content = (
           <Section >
-            <TitleBar title={`Section ${i}B`}  position={`${i}b`} minimizeSection={minimize} />
+            <TitleBar title={`Section ${i}B`} position={`${i}b`} minimizeSection={minimize} />
             <SectionContent minimized={order[i].b.min}>
               {testdata}
             </SectionContent>
@@ -142,17 +143,151 @@ const DesktopLayout = ({ player }) => {
     updateOrder()
     updateColumns()
   }, [])
+  // a little function to help us with reordering the result
+  const reorder = (list, startIndex, endIndex) => {
+    const result = Array.from(list);
+    const [removed] = result.splice(startIndex, 1);
+    result.splice(endIndex, 0, removed);
 
+    return result;
+  };
+
+  /**
+  * Moves an item from one list to another list.
+  */
+  const move = (source, destination, droppableSource, droppableDestination) => {
+    const sourceClone = Array.from(source);
+    const destClone = Array.from(destination);
+    const [removed] = sourceClone.splice(droppableSource.index, 1);
+
+    destClone.splice(droppableDestination.index, 0, removed);
+
+    const result = {};
+    result[droppableSource.droppableId] = sourceClone;
+    result[droppableDestination.droppableId] = destClone;
+
+    return result;
+  };
+
+  const grid = 8;
+  const getListStyle = isDraggingOver => ({
+    background: isDraggingOver ? colour.tertiary : colour.background,
+    padding: grid,
+    // width: 250
+
+  });
+
+  const getItemStyle = (isDragging, draggableStyle) => ({
+    // some basic styles to make the items look a bit nicer
+    userSelect: 'none',
+    padding: grid * 2,
+    margin: `0 0 ${grid}px 0`,
+
+    // change background colour if dragging
+    background: isDragging ? colour.background : colour.backgroundDark,
+
+    // styles we need to apply on draggables
+    ...draggableStyle
+  });
+  const idList = {
+    droppable: 'section0a',
+    droppable2: 'section1a'
+  }
+
+  const getList = id => idList[id];
+  
+
+  const onDragEnd = result => {
+    const { source, destination } = result;
+
+    // dropped outside the list
+    if (!destination) {
+      console.log('FFF')
+      return;
+    }
+
+    if (source.droppableId === destination.droppableId) {
+      const items = reorder(
+        getList(source.droppableId),
+        source.index,
+        destination.index
+      );
+        console.log('items :', items);
+      let state = { items };
+
+      // if (source.droppableId === 'droppable2') {
+      //     state = { selected: items };
+      // }
+
+      // this.setState(state);
+    } else {
+      const result = move(
+        getList(source.droppableId),
+        getList(destination.droppableId),
+        source,
+        destination
+      );
+
+      this.setState({
+        items: result.droppable,
+        selected: result.droppable2
+      });
+    }
+  };
   const updateColumns = () => {
     const loadedData = order.map((section, index) => {
       return (
-        < Column key={index} >
-          {section.a.content}
-          {section.b.content}
-        </Column >)
+        <Droppable droppableId={`Column${index}`} >
+          {(provided, snapshot) => (
+            < Column key={index} ref={provided.innerRef}
+              style={getListStyle(snapshot.isDraggingOver)}>
+              {section.a.content &&
+                <Draggable
+                  key={section.a.content.id || `${index}0`}
+                  draggableId={section.a.content.id || `${index}0`}
+                  index={index * 1 + 1}>
+                  {(provided, snapshot) => (
+                    <Section
+                      ref={provided.innerRef}
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                      style={getItemStyle(
+                        snapshot.isDragging,
+                        provided.draggableProps.style
+                      )}>
+                      {section.a.content}
+                    </Section>
+                  )}
+                </Draggable>
+              }
+              {section.b.content &&
+                <Draggable
+                  key={section.b.content.id || `${index}1`}
+                  draggableId={section.b.content.id || `${index}1`}
+                  index={index * 1 + 2}>
+                  {(provided, snapshot) => (
+                    <Section
+                      ref={provided.innerRef}
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                      style={getItemStyle(
+                        snapshot.isDragging,
+                        provided.draggableProps.style
+                      )}>
+                      {section.b.content}
+                    </Section>
+                  )}
+                </Draggable>
+              }
+              {provided.placeholder}
+            </Column >
+          )}
+        </Droppable>
+      )
     })
     setColumns(loadedData)
   }
+
 
   return (
     <Desktop>
@@ -161,15 +296,17 @@ const DesktopLayout = ({ player }) => {
           Themes
         </TopBarButton>
         <PlayerName>
-          {player.name}
+          {player && player.name}
         </PlayerName>
         <TopBarButton>
           Log Out
           </TopBarButton>
       </TopBar>
-    <Container>
-      {columns}
-    </Container>
+      <Container>
+        <DragDropContext onDragEnd={onDragEnd}>
+          {columns}
+        </DragDropContext>
+      </Container>
     </Desktop>
   )
 }
