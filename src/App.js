@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import Index from './components/exampleComponent/index'
+import Index from './components/layouts/Desktop'
 
 function App () {
   return (

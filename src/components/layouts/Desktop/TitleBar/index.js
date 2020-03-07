@@ -30,10 +30,10 @@ const Title = styled.span`
   font-weight: 700;
 `
 
-const TitleBar = ({title, minimizeSection, position}) => {
-  const minimize = (event) => {
+const TitleBar = ({title, minimizeSection, sectionID}) => {
+  const minimize = () => {
    
-    minimizeSection(event.target.id.charAt(0), event.target.id.charAt(1))
+    minimizeSection(sectionID)
   }
   return (
     <TopBar>
@@ -41,7 +41,7 @@ const TitleBar = ({title, minimizeSection, position}) => {
       <Title>
         {title}
       </Title>
-      <BarButton src={minimizeImage} onClick={minimize} id={position} />
+      <BarButton src={minimizeImage} onClick={minimize} id={sectionID} />
     </TopBar>
   )
 }
